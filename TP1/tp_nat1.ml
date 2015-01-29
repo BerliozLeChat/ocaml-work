@@ -9,6 +9,21 @@
 #load "nat_1.cmo";;
 open Nat_1;;
 
+
+let rec est_pair(a)=
+	if est_zero(a) then
+		true
+	else
+		est_impair(pre(a));;
+
+let rec est_impair(a)=
+	if est_zero(a) then
+		false
+	else
+		est_pair(pre(a));;
+	
+;;
+
 (*
 plus : naturel*naturel -> naturel
 opérateur d'addition entre deux naturels
