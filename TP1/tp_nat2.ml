@@ -10,6 +10,26 @@
 open Nat_2;;
 
 (*
+plus : naturel*naturel -> naturel
+opérateur d'addition entre deux naturels
+*)
+let rec plus(a,b) =
+	if est_zero(b) && est_zero(a) then
+		zero()
+	else if est_un(b) && est_un(a) then
+		sucsuc(zero())
+	else if est_un(b) && est_zero(a) then
+		un()
+	else if est_un(a) && est_zero(b) then
+		un()
+	else if est_un(a) || est_zero(a) then
+		sucsuc(plus(a,prepre(b)))
+	else if est_un(b) || est_zero(b) then
+		sucsuc(plus(prepre(a),b))
+	else
+		sucsuc(sucsuc(plus(prepre(a),prepre(b))));;
+
+(*
 nat_of_int :  int -> naturel
 Convertit un int en naturel
 *)
@@ -35,3 +55,8 @@ let rec int_of_nat(x) =
 
 int_of_nat(nat_of_int(int_of_nat(zero())));;
 int_of_nat(nat_of_int(5));;
+
+int_of_nat(plus(nat_of_int(4),nat_of_int(2)));;
+int_of_nat(plus(nat_of_int(2),nat_of_int(2)));;
+int_of_nat(plus(nat_of_int(2),nat_of_int(4)));;
+int_of_nat(plus(nat_of_int(3),nat_of_int(5)));;
