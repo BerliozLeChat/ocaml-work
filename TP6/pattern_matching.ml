@@ -36,11 +36,11 @@ let rec nb_colonnes expr = match expr with
 	|Plus(e1,e2) -> nb_colonnes(e1)+nb_colonnes(e2)+3
 	|PlusDiv(e1,e2,e3) -> nb_chiffre(e1)+3+ ( max (nb_colonnes(e2)) (nb_colonnes(e3)) ) ;;
 	
-let rec nb_lignes expr = match expr with
-	C(e) -> 1
-	|Plus(e1,e2) -> ( max (nb_lignes(e1)) (nb_lignes(e2)) )
-	|PlusDiv(e1,e2,e3) -> 3
 
+let rec nb_ligne_faux expr = match expr with
+	C(e) -> 1
+	|Plus(e1,e2) -> max (nb_ligne_faux e1) (nb_ligne_faux e2)
+	PlusDiv(n,e1,e2)->1 + nb_ligne_faux e1 + nb_ligne_faux e2;;
 
 	
 nb_colonnes(e1);;
