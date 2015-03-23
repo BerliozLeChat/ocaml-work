@@ -1,0 +1,7 @@
+
+ouvrir une session OCaml puis faire evaluer :
+
+#load "str.cma" ;;
+#load "derivation.cmo" ;;
+open Derivation ;;
+

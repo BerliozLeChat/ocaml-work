@@ -1,0 +1,5 @@
+
+ne pas creer prealablement de fichier derivation.mli
+
+executer la commande : ocamlc -c str.cma derivation.ml
+
